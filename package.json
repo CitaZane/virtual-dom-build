@@ -1,0 +1,12 @@
+{
+  "name": "virtual-dom-build",
+  "version": "1.0.0",
+  "description": "> Project created closely following [this](https://dev.to/ycmjason/building-a-simple-virtual-dom-from-scratch-3d05) blog article\r > In reparetion to create mini-framework project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
