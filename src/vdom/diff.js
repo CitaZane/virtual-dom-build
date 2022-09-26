@@ -24,7 +24,7 @@ const diffAttrs = (oldAttrs, newAttrs) => {
         return $node;
         });
     }
-    //remove attrs
+    //remove attrs if not present any more
     for (const k in oldAttrs) {
         if (!(k in newAttrs)) {
         patches.push($node => {
@@ -44,12 +44,15 @@ const diffAttrs = (oldAttrs, newAttrs) => {
 const diffChildren = (oldVChildren, newVChildren) => {
     const childPatches = [];
 
+    // recursevly call diff for children to get all patches
     oldVChildren.forEach((oldVChild, i) => {
         childPatches.push(diff(oldVChild, newVChildren[i]));
     });
 
     const additionalPatches = [];
 
+    // take the (additional children) from new tree elem
+    // append children
     for (const additionalVChild of newVChildren.slice(oldVChildren.length)) {
         additionalPatches.push($node => {
         $node.appendChild(render(additionalVChild));
